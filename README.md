@@ -1,5 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/aubreyhewes/simple-shortcode-parser?style=flat-square)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/aubreyhewes/simple-shortcode-parser?style=flat-square)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/aubreyhewes/simple-shortcode-parser?style=flat-square)
 ![npm (scoped)](https://img.shields.io/npm/v/@hewes/shortcode?style=flat-square)
 ![node-current (scoped)](https://img.shields.io/node/v/@hewes/shortcode?style=flat-square)
 
