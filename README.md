@@ -13,20 +13,37 @@ You can use this to parse the text node into text and shortcode nodes to continu
 
 ## Features
 
+  * Customizable start/end tags
   * Attribute support
-    * Integer attribute values (i.e. unquoted number value)
+    * String attribute values (i.e. quoted string value)
+    * Number attribute values (i.e. unquoted number value)
     * Boolean attribute values (i.e. unquoted boolean value)
       * Default Boolean value (i.e. without a value is `true`)
-  * Customizable start/end tags
 
 ## Usage
 
+Install
+
     npm install @hewes/shortcode
+
+Use
 
 ````typescript
 import { parse } from "@hewes/shortcode"
 
 const nodes = parse("[shortcode]");
+````
+
+Produces
+
+````json
+[
+  {
+    "type": "shortcode",
+    "token": "[shortcode]",
+    "name": "shortcode"
+  }
+]
 ````
 
 ## Examples

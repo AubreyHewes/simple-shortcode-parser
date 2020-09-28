@@ -15,6 +15,26 @@ Produces
 ]
 ````
 
+## With extra text
+
+    see the following [shortcode]
+
+Produces
+
+````json
+[
+  {
+    "type": "text",
+    "token": "see the following "
+  },
+  {
+    "type": "shortcode",
+    "token": "[shortcode]",
+    "name": "shortcode"
+  }
+]
+````
+
 ## Boolean attributes
 
     [shortcode a1 a2=true a3="true"]
