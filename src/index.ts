@@ -36,10 +36,14 @@ export const parse = (
     ...options,
   };
 
+  // note this will currently break if an attribute value contains an `tagEnd`
+  // TODO is to replace the tokenizer with a more robust solution
+  // for now it is ok
+  const re = new RegExp(`\\${options.tagStart}(\\w+)(\\s+(.*?))?${options.tagEnd}`);
   return tokenize(
     string,
     {
-      shortcode: /\[(\w+)(\s+(.*?))?]/,
+      shortcode: re,
     },
     "text"
   ).map((token) => {

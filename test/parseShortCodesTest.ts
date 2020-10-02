@@ -59,3 +59,17 @@ test("can parse multiple shortcodes with whitespace between", (t) => {
     { type: "shortcode", token: "[test]", name: "test" },
   ]);
 });
+
+test("custom startTag/endTag: can parse multiple shortcodes with whitespace between", (t) => {
+  t.deepEqual(
+    parse("{test a=1 b=2} test {test}", {
+      tagStart: "{",
+      tagEnd: "}",
+    }),
+    [
+      { type: "shortcode", token: "{test a=1 b=2}", name: "test", attributes: { a: 1, b: 2 } },
+      { type: "text", token: " test " },
+      { type: "shortcode", token: "{test}", name: "test" },
+    ]
+  );
+});
