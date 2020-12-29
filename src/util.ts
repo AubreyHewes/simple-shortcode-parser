@@ -15,7 +15,7 @@ export const parseAttributes = (attributes: string, allowEmptyAttributes?: boole
   if (!attributes) {
     return undefined;
   }
-  return Array.from(attributes.trim().matchAll(/(\w+)(=("[^<>"]*"|'[^<>']*'|\w+))?/gi)).reduce(
+  return Array.from(attributes.trim().matchAll(/([\w-]+)(=("[^<>"]*"|'[^<>']*'|[\w-]+))?/gi)).reduce(
     (
       params: {
         [key: string]: string | number | boolean;

@@ -84,3 +84,14 @@ test("tag with dash", (t) => {
     },
   ]);
 });
+
+test("tag with dash with attributes with dashes", (t) => {
+  t.deepEqual(parse('[test-test one=1 one-two="1 2" one-two-three]'), [
+    {
+      type: "shortcode",
+      token: '[test-test one=1 one-two="1 2" one-two-three]',
+      name: "test-test",
+      attributes: { one: 1, "one-two": "1 2", "one-two-three": true },
+    },
+  ]);
+});
