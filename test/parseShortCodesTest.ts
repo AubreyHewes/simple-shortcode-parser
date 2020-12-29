@@ -73,3 +73,14 @@ test("custom startTag/endTag: can parse multiple shortcodes with whitespace betw
     ]
   );
 });
+
+test("tag with dash", (t) => {
+  t.deepEqual(parse("[test-test a=1]"), [
+    {
+      type: "shortcode",
+      token: "[test-test a=1]",
+      name: "test-test",
+      attributes: { a: 1 },
+    },
+  ]);
+});
