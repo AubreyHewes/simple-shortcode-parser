@@ -1,3 +1,5 @@
+import matchAll from "./matchAll";
+
 export const introspectValue = (value: string | undefined, allowEmptyAttributes: boolean = true) => {
   if (value === undefined || value === "true") {
     return true;
@@ -15,7 +17,7 @@ export const parseAttributes = (attributes: string, allowEmptyAttributes?: boole
   if (!attributes) {
     return undefined;
   }
-  return Array.from(attributes.trim().matchAll(/([\w-]+)(=("[^<>"]*"|'[^<>']*'|[\w-]+))?/gi)).reduce(
+  return Array.from(matchAll(attributes.trim(), /([\w-]+)(=("[^<>"]*"|'[^<>']*'|[\w-]+))?/gi)).reduce(
     (
       params: {
         [key: string]: string | number | boolean;
