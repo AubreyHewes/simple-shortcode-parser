@@ -15,7 +15,8 @@
   "scripts": {
     "build": "rm -rf dist && rollup -c && prettier dist/esm/**/*.d.ts --write",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
-    "test": "TS_NODE_PROJECT='./test/tsconfig.json' ava test/**/*.test.{js,ts} test/**/*Test.{js,ts}",
+    "test": "TS_NODE_PROJECT='./test/tsconfig.json' ava",
+    "coverage": "NODE_ENV=test TS_NODE_PROJECT='./test/tsconfig.json' nyc ava",
     "release": "standard-version"
   },
   "main": "dist/umd/index.js",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@rollup/plugin-typescript": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
@@ -96,6 +98,10 @@
     "not ie < 9"
   ],
   "ava": {
+    "files": [
+      "test/**/*.test.{js,ts}",
+      "test/**/*Test.{js,ts}"
+    ],
     "extensions": [
       "ts"
     ],
@@ -104,8 +110,9 @@
     ]
   },
   "nyc": {
-    "require": [
-      "ts-node/register"
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "include": [
+      "src/**/*.ts"
     ],
     "reporter": [
       "lcov",
