@@ -1,4 +1,4 @@
-[![Circle CI](https://img.shields.io/circleci/build/github/AubreyHewes/simple-shortcode-parser?style=flat-square)](https://app.circleci.com/pipelines/github/AubreyHewes/simple-shortcode-parser?branch=canary)
+[![Circle CI](https://img.shields.io/circleci/build/github/AubreyHewes/simple-shortcode-parser?style=flat-square&label=tests)](https://app.circleci.com/pipelines/github/AubreyHewes/simple-shortcode-parser?branch=canary)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/aubreyhewes/simple-shortcode-parser?style=flat-square)](https://github.com/AubreyHewes/simple-shortcode-parser/tags)
 [![npm (scoped)](https://img.shields.io/npm/v/@hewes/shortcode?style=flat-square)](https://www.npmjs.com/package/@hewes/shortcode)
 ![node-current (scoped)](https://img.shields.io/node/v/@hewes/shortcode?style=flat-square)
@@ -6,11 +6,15 @@
 
 # A Simple ShortCode Parser
 
-> Tokenize a string to an AST (sic) of shortcode/text nodes
+> Tokenizes a string to an AST of shortcode/text nodes
 
-When rendering an AST of "content" you end up with text nodes, that may contain so called "shortcodes".
-You would like to handle these shortcodes differently than text nodes.
-You can use this to parse the text node into text and shortcode nodes to continue the rendering.
+When rendering a string of "content" that contains so-called "shortcodes", you may want to handle the shortcodes differently. i.e. render something else.
+This tokenizes the given string to an AST of shortcode/text nodes allowing an intuitive structure for rendering the shortcodes.
+
+## What is a shortcode?
+
+A "shortcode" is a name used for embedding other/generated content in user supplied content.
+Generally attributed to the [wordpress project](https://wordpress.com/support/shortcodes/) and look like `[shortcode]`.
 
 ## Features
 
@@ -23,16 +27,48 @@ You can use this to parse the text node into text and shortcode nodes to continu
 
 ## Usage
 
+### Node
 Install
 
-    npm install @hewes/shortcode
+````shell
+npm install @hewes/shortcode
+# or yarn
+````
 
 Use
 
 ````typescript
 import { parse } from "@hewes/shortcode"
 
-const nodes = parse("[shortcode]");
+parse("[shortcode]");
+````
+
+Produces
+
+````json
+[
+  {
+    "type": "shortcode",
+    "token": "[shortcode]",
+    "name": "shortcode"
+  }
+]
+````
+
+### Browser
+Install
+
+````html
+<script src="https://unpkg.com/@hewes/shortcode"></script>
+<!-- note: specify version to ensure your code expectancies -->
+````
+
+Use
+
+````html
+<script>
+  SimpleShortCodeParser.parse("[shortcode]");
+</script>
 ````
 
 Produces
