@@ -1,7 +1,8 @@
-[![GitHub](https://img.shields.io/github/license/aubreyhewes/simple-shortcode-parser?style=flat-square)](https://github.com/AubreyHewes/simple-shortcode-parser/blob/canary/LICENSE)
+[![Circle CI](https://img.shields.io/circleci/build/github/AubreyHewes/simple-shortcode-parser?style=flat-square)](https://app.circleci.com/pipelines/github/AubreyHewes/simple-shortcode-parser?branch=canary)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/aubreyhewes/simple-shortcode-parser?style=flat-square)](https://github.com/AubreyHewes/simple-shortcode-parser/tags)
 [![npm (scoped)](https://img.shields.io/npm/v/@hewes/shortcode?style=flat-square)](https://www.npmjs.com/package/@hewes/shortcode)
 ![node-current (scoped)](https://img.shields.io/node/v/@hewes/shortcode?style=flat-square)
+[![License](https://img.shields.io/github/license/aubreyhewes/simple-shortcode-parser?style=flat-square)](https://github.com/AubreyHewes/simple-shortcode-parser/blob/canary/LICENSE)
 
 # A Simple ShortCode Parser
 
