@@ -107,7 +107,7 @@
       "ts"
     ],
     "require": [
-      "ts-node/register"
+      "ts-node/register/transpile-only"
     ]
   },
   "nyc": {
@@ -119,8 +119,7 @@
       "lcov",
       "text"
     ],
-    "sourceMap": false,
-    "instrument": false
+    "sourceMap": false
   },
   "commitlint": {
     "extends": [
